@@ -1,29 +1,40 @@
 # 📄 Descripció - Enunciat de l'exercici
 
-En aquest exercici, es crea una classe anomenada `Producte` amb els atributs següents:
-- `nom`
-- `preu`
+## Nivell 2 - Exercici 1: Classe Entrada per a la gestió d'errors en la introducció de dades
 
-A més, es crea una classe `Venda`, que té:
-- Una col·lecció de productes.
-- Un atribut `preuTotal` per a emmagatzemar el preu total de la venda.
+En aquest exercici, es crea una classe anomenada **Entrada**, que serveix per controlar les excepcions que poden aparèixer en Java a l’hora d’introduir dades per teclat amb la classe **Scanner**.
 
-La classe `Venda` conté el mètode `calcularTotal()`, que:
-- Llança l’excepció personalitzada `VendaBuidaException` si la col·lecció de productes està buida, mostrant el missatge: "Per fer una venda primer has d’afegir productes".
-- Si la col·lecció conté productes, recorre la llista i suma els preus de tots els productes per assignar el valor a `preuTotal`.
+El primer pas és instanciar un objecte de la classe **Scanner** i, a partir d’aquí, crear mètodes estàtics per llegir diferents tipus de dades des del teclat.
 
-L’excepció `VendaBuidaException` ha de ser una classe filla de `Exception`. Al seu constructor, ha de rebre el missatge d’error i, quan es capturi l’excepció, s'ha de mostrar per pantalla utilitzant el mètode `getMessage()`.
+### ⚠️ Important
+Si en algun mètode salta una excepció, s'ha de tractar i tornar a demanar la dada a l’usuari fins que sigui introduïda correctament. Per exemple, si s’introdueix un **float** amb un punt en lloc d'una coma, ha de mostrar **Error de format** i seguir demanant la dada fins que l’entrada sigui correcta.
 
-A més, s'ha d'implementar codi per generar i capturar una excepció de tipus `IndexOutOfBoundsException`.
+Tots els mètodes reben un **String** amb el missatge que es vol mostrar a l’usuari, per exemple: *Introdueix la teva edat*, i retornen la dada introduïda pel mateix usuari.
+
+### 📌 Mètodes a implementar
+
+Capturant **InputMismatchException**:
+```java
+public static byte llegirByte(String missatge);
+public static int llegirInt(String missatge);
+public static float llegirFloat(String missatge);
+public static double llegirDouble(String missatge);
+```
+
+Capturant una excepció personalitzada de la classe **Exception**:
+```java
+public static char llegirChar(String missatge);
+public static String llegirString(String missatge);
+public static boolean llegirSiNo(String missatge); // Retorna true si l'usuari introdueix 's', false si introdueix 'n'
+```
 
 ---
 
 # 💻 Tecnologies Utilitzades
 
-- Java
-- Programació Orientada a Objectes (POO)
-- Excepcions en Java
-- Col·leccions en Java
+- **Java**
+- **Programació Orientada a Objectes (POO)**
+- **Excepcions en Java**
 
 ---
 
@@ -31,14 +42,7 @@ A més, s'ha d'implementar codi per generar i capturar una excepció de tipus `I
 
 Per a executar aquest projecte, es requereix:
 
-- JDK 8 o superior
-- Un entorn de desenvolupament com IntelliJ IDEA, Eclipse o VS Code amb extensió per a Java
-- Coneixements bàsics de Java i POO
-
-Per compilar i executar el programa des de terminal:
-
-```sh
-javac Producte.java Venda.java VendaBuidaException.java Main.java
-java Main
-```
+- **JDK 8 o superior**
+- Un entorn de desenvolupament com **IntelliJ IDEA, Eclipse o VS Code** amb extensió per a Java
+- Coneixements bàsics de **Java** i **POO**
 
