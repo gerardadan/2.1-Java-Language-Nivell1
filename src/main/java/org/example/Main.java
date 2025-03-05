@@ -1,17 +1,25 @@
 package org.example;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Product p1 = new Product("test1", 10);
+        Product p2 = new Product("test2", 20);
+        Product p3 = new Product("test3", 30);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        ArrayList<Product> products1 = new ArrayList<Product>();
+        ArrayList<Product> products2 = new ArrayList<Product>((Arrays.asList(p1,p2,p3)));
+        Sale sale = new Sale(products1);
+
+        try{
+            System.out.println(sale.calculateTotal());
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
         }
+
     }
 }
