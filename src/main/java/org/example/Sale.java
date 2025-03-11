@@ -1,19 +1,19 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Sale {
-    private ArrayList<Product> products;
+    private List<Product> products;
     private double totalPrice;
 
-    public Sale(ArrayList<Product> products){
+    public Sale(List<Product> products){
         this.products = products;
     }
 
-    public Double calculateTotal() throws Exception {
-
+    public Double calculateTotal() throws EmptySaleException {
         if(products.isEmpty())
-            throw new Exception("Per fer una venda primer has d’afegir productes");
+            throw new EmptySaleException("Please insert products for sale");
 
         for(Product product :this.products){
             totalPrice += product.getPrice();
